@@ -1,0 +1,31 @@
+.main-nav {
+  height: 70px;
+  color: white;
+  align-items: center;
+  padding-left: 40px;
+}
+
+.nav-logo {
+  color: white;
+}
+
+.main-menu {
+  display: flex;
+  width: 380px;
+  justify-content: space-between;
+
+  a {
+    text-transform: capitalize;
+    font-size: 18px;
+    color: rgba(white, 0.5);
+
+    &.active {
+      font-weight: bold;
+      color: white;
+    }
+
+    &:hover {
+      color: white;
+    }
+  }
+}
