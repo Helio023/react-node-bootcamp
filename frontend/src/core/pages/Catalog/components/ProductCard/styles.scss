@@ -1,0 +1,33 @@
+.product-img img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.product-img {
+  margin-bottom: 20px;
+}
+
+.product {
+  padding: 20px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 5px 15px rgba(black, 0.2);
+}
+
+.product-name {
+  margin-top: 20px;
+  color: #263238;
+}
+
+.product-price {
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: bold;
+  color: #407bff;
+}
+
+.product-price sup {
+  margin-right: 5px;
+  font-size: 15px;
+  color: #263238;
+}
