@@ -11,7 +11,7 @@ const Home = () => (
         <p className='hero-text'>
           Ajudaremos você a encontrar os melhores produtos do mercado.
         </p>
-        <Link to='/catalog'>
+        <Link to='/products'>
           <ButtonIcon btnText='inicie agora a sua busca' />
         </Link>
       </div>

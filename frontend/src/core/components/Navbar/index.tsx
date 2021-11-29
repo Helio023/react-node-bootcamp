@@ -23,7 +23,7 @@ const Navbar = () => (
         </li>
         <li>
           <NavLink
-            to='/catalog'
+            to='/products'
             className={(navdata) =>
               navdata.isActive ? 'menu-link active' : 'menu-link'
             }

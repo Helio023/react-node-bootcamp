@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './core/pages/Home';
 import Catalog from './core/pages/Catalog';
 import Admin from './core/pages/Admin';
+import ProductDetails from './core/pages/Catalog/components/ProductDetails';
 
 const App = () => {
   return (
@@ -14,7 +15,8 @@ const App = () => {
 
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/catalog' element={<Catalog />} />
+          <Route path='/products' element={<Catalog />} />
+          <Route path='/products/:productid' element={<ProductDetails />} />
           <Route path='/admin' element={<Admin />} />
         </Routes>
       </BrowserRouter>
