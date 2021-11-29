@@ -1,18 +1,46 @@
+import { Link, NavLink } from 'react-router-dom';
 import './styles.scss';
 
 const Navbar = () => (
   <nav className='row bg-primary main-nav'>
     <div className='col-2'>
-      <a href='link' className="nav-logo">
+      <Link to='/' className='nav-logo'>
         <h4>DS Catalog</h4>
-      </a>
+      </Link>
     </div>
 
-    <div className="col-6 offset-2">
-      <ul className="main-menu">
-        <li><a href="link" className="active">Home</a></li>
-        <li><a href="link">Catálogo</a></li>
-        <li><a href="link">Admin</a></li>
+    <div className='col-6 offset-2'>
+      <ul className='main-menu'>
+        <li>
+          <NavLink
+            to='/'
+            className={(navdata) =>
+              navdata.isActive ? 'menu-link active' : 'menu-link'
+            }
+          >
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to='/catalog'
+            className={(navdata) =>
+              navdata.isActive ? 'menu-link active' : 'menu-link'
+            }
+          >
+            Catálogo
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to='/admin'
+            className={(navdata) =>
+              navdata.isActive ? 'menu-link active' : 'menu-link'
+            }
+          >
+            Admin
+          </NavLink>
+        </li>
       </ul>
     </div>
   </nav>
