@@ -1,0 +1,31 @@
+.product-details-container {
+  margin-top: 40px;
+  padding: 0 40px;
+}
+
+.product-details {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 18px rgba(black, 0.25);
+  padding: 50px 60px 90px;
+}
+
+.product-goback {
+  display: flex;
+  align-items: baseline;
+  &:hover {
+    color: #407bff;
+  }
+}
+
+.icon-goback {
+  transform: rotate(-180deg);
+  width: 15px;
+  height: 15px;
+}
+
+.text-goback {
+  font-size: 25px;
+  font-weight: normal;
+  margin-left: 20px;
+}
