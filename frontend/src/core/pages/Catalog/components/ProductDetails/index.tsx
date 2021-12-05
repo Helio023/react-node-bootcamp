@@ -1,9 +1,11 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { ReactComponent as ArrowIcon } from '../../../../assets/images/chevron_right.svg';
 import productImg from '../../../../assets/images/pc.png';
 import './styles.scss';
 
 const ProductDetails = () => {
+  const {productid} = useParams()
+
   return (
     <div className='product-details-container'>
       <div className='product-details'>
@@ -24,7 +26,7 @@ const ProductDetails = () => {
           </div>
           <div className='col-6 product-desc-section'>
             <div className='product-desc'>
-              <h2 className="product-desc-head">Descrição do produto</h2>
+              <h2 className="product-desc-head">Descrição do produto {productid}</h2>
               <p className="product-desc-text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
                 recusandae iure optio cumque eligendi sed aspernatur vero,
