@@ -1,15 +1,25 @@
 import './styles.scss';
 import productImage from '../../../../assets/images/pc.png';
 
-const ProductCard = () => (
+const formatPrice = (price: number) => {
+  return new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2 }).format(
+    price
+  );
+};
+
+
+const ProductCard = ({ product }: any) => (
   <div className='product'>
     <div className='product-img'>
-        <img src={productImage} alt="computer" />
+      <img src={product.image} alt={product.name} />
     </div>
 
-    <div className="product-description">
-        <h6 className="product-name">Computador desktop intel core I7</h6>
-        <p className="product-price"><sup>MZN</sup>59.852.00</p>
+    <div className='product-description'>
+      <h6 className='product-name'>{product.name}</h6>
+      <p className='product-price'>
+        <sup>R$</sup>
+        {formatPrice(product.price)}
+      </p>
     </div>
   </div>
 );
