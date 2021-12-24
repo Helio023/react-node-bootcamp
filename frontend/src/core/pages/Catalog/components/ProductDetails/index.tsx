@@ -3,6 +3,7 @@ import { ReactComponent as ArrowIcon } from '../../../../assets/images/chevron_r
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './styles.scss';
+import ProductDetailsLoader from '../ProductCardLoader/PoaductDetailsLoader';
 
 const formatPrice = (price: number) => {
   return new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2 }).format(
@@ -16,16 +17,19 @@ const ProductDetails = () => {
   const { productid } = useParams();
 
   const [product, setProduct] = useState<any>([]);
+  const [isLoading, setIsloading] = useState(false)
 
   useEffect(() => {
+    setIsloading(true)
     axios(`${BASE_URL}/product/${productid}`)
       .then((res) => setProduct(res.data.product))
-      .catch((e) => console.log(e));
+      .finally(() => setIsloading(false));
   }, [productid]);
 
   return (
     <div className='product-details-container'>
-      <div className='product-details'>
+     {isLoading ? <ProductDetailsLoader /> : (
+        <div className='product-details'>
         <Link to='/products' className='product-goback'>
           <ArrowIcon className='icon-goback' />
           <h1 className='text-goback'>Voltar</h1>
@@ -44,7 +48,7 @@ const ProductDetails = () => {
           </div>
           <div className='col-6 product-desc-section'>
             <div className='product-desc'>
-              <h2 className='product-desc-head'>Descrição do produto</h2>
+              <h2 className='product-desc-head'>{product?.name}</h2>
               <p className='product-desc-text'>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
                 recusandae iure optio cumque eligendi sed aspernatur vero,
@@ -55,6 +59,7 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
+     )}
     </div>
   );
 };

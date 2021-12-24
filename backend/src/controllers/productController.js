@@ -18,12 +18,23 @@ exports.createProdut = async (req, res) => {
 };
 
 exports.getAllProducts = async (req, res) => {
+  
   try {
-    const products = await Product.find();
+    let { page, size } = req.query;
+    if (!page) {page = 1}
+    if (!size) {size = 8}
+    const totalProducts = await Product.countDocuments()
+    const limit = parseInt(size);
+    const skip = (parseInt(page) - 1) * size
+    const totalPages = Math.ceil(totalProducts / limit)
+
+    const products = await Product.find().limit(limit).skip(skip)
 
     res.status(200).json({
       status: 'sucess',
-      totalProducts: products.length,
+      pageProducts: products.length,
+      totalProducts,
+      totalPages,
       products,
     });
   } catch (e) {

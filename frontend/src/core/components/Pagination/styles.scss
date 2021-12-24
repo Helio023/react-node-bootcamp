@@ -1,0 +1,37 @@
+.pagination-conatiner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+.pagination-item {
+  border-radius: 50%;
+  height: 100%;
+  width: 40px;
+  background-color: #e1e1e1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 15px;
+  color: white;
+  cursor: pointer;
+
+  &.active {
+    background-color: #407bff;
+  }
+}
+
+.previous {
+  transform: rotate(-180deg);
+  margin-right: 15px;
+  cursor: pointer;
+  
+}
+.next {
+  cursor: pointer;
+  color: #407bff
+}
