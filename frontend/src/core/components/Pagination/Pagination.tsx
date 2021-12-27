@@ -10,10 +10,12 @@ type Props = {
 
 const Pagination = ({ totalPages, activePage, onChange }: Props) => {
   const items = generateList(totalPages);
+  const previousClass = totalPages > 0 && activePage > 0 ? 'page-active' : 'page-inactive'
+  const nextClass = (activePage + 1) < totalPages ? 'page-active' : 'page-inactive'
 
   return (
     <div className='pagination-conatiner'>
-      <ArrowIcon className='previous' />
+      <ArrowIcon className={`previous ${previousClass}`} onClick={() => onChange(activePage - 1)}/>
       {items.map((item) => (
         <div
           key={item}
@@ -24,7 +26,7 @@ const Pagination = ({ totalPages, activePage, onChange }: Props) => {
         </div>
       ))}
 
-      <ArrowIcon className='next' />
+      <ArrowIcon className={`next ${nextClass}`} onClick={() => onChange(activePage + 1)}/>
     </div>
   );
 };

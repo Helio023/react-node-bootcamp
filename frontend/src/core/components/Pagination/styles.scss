@@ -29,9 +29,21 @@
   transform: rotate(-180deg);
   margin-right: 15px;
   cursor: pointer;
-  
+  width: 10px;
+  height: 35px;
 }
+
 .next {
+  width: 10px;
+  height: 35px;
+}
+
+.page-active {
   cursor: pointer;
-  color: #407bff
+  color: #407bff;
+}
+
+.page-inactive {
+  color: #e1e1e1;
+  pointer-events: none;
 }

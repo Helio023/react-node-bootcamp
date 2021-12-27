@@ -13,21 +13,21 @@ const Catalog = () => {
   const [products, setProducts] = useState<any>([]);
   const [pages, setPages] = useState<any>([]);
   const [isloading, setIsloading] = useState(false);
-  const [activePage, setActivePage] = useState(0)
+  const [activePage, setActivePage] = useState(0);
 
   useEffect(() => {
     const params = {
-      page: activePage
-    }
-   
+      page: activePage + 1,
+    };
+
     setIsloading(true);
-    axios(`${BASE_URL}/product`, {params})
+    axios(`${BASE_URL}/product`, { params })
       .then((res) => {
-        setProducts(res.data.products)
-        setPages(res.data)
+        setProducts(res.data.products);
+        setPages(res.data);
       })
       .finally(() => setIsloading(false));
-  }, [a]);
+  }, [activePage]);
 
   return (
     <section className='catalog-container'>
@@ -46,7 +46,13 @@ const Catalog = () => {
           })
         )}
       </div>
-      {products && <Pagination onChange={page => setActivePage(page)} totalPages={pages.totalPages} activePage={activePage}/>}
+      {products && (
+        <Pagination
+          onChange={(page) => setActivePage(page)}
+          totalPages={pages.totalPages}
+          activePage={activePage}
+        />
+      )}
     </section>
   );
 };
