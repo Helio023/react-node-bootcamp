@@ -1,6 +1,8 @@
 import './styles.scss';
 import { ReactComponent as AuthBg } from '../../assets/images/main-image.svg';
 import { Route, Routes } from 'react-router-dom';
+import Login from './componets/Login/Login';
+import Register from './componets/Register/Register';
 
 const Auth = () => {
   return (
@@ -20,8 +22,8 @@ const Auth = () => {
         <div className="col-5">
             <div className="auth-content">
                 <Routes>
-                    <Route path='login' element={<h1>Login</h1>}/>
-                    <Route path='register' element={<h1>Cadastrar</h1>}/>
+                    <Route path='login' element={<Login />}/>
+                    <Route path='register' element={<Register />}/>
                     <Route path='recover' element={<h1>Recuperacao</h1>}/>
                 </Routes>
             </div>
