@@ -20,7 +20,7 @@ const Auth = () => {
         </div>
 
         <div className="col-5">
-            <div className="auth-content">
+            <div className="auth-content" >
                 <Routes>
                     <Route path='login' element={<Login />}/>
                     <Route path='register' element={<Register />}/>

@@ -5,16 +5,15 @@ import { useForm } from 'react-hook-form';
 import './styles.scss';
 
 type FormData = {
-    email: string;
-    password: string
-}
+  email: string;
+  password: string;
+};
 
 const Login = () => {
   const { register, handleSubmit } = useForm<FormData>();
-  
+
   const onSubmit = (data: FormData) => {
-      console.log(data);
-      
+    console.log(data);
   };
   return (
     <div className='login'>
