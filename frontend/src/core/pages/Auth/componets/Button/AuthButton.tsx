@@ -5,7 +5,7 @@ type Props = {
 }
 const AuthButton = ({text} : Props) => {
     return (
-        <button className='auth-btn'>{text}</button>
+        <button type='submit' className='auth-btn'>{text}</button>
     )
 }
 
