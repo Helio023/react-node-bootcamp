@@ -1,4 +1,4 @@
-import { type } from 'os';
+import { useNavigate } from 'react-router-dom';
 import './styles.scss';
 
 type Props = {
@@ -7,6 +7,10 @@ type Props = {
 };
 
 const BaseForm = ({ title, children }: Props) => {
+  const navigate = useNavigate();
+  const handleCancel = () => {
+    navigate('../');
+  };
   return (
     <div className='admin-base-form'>
       <h1 className='admin-base-title'>{title}</h1>
@@ -14,10 +18,14 @@ const BaseForm = ({ title, children }: Props) => {
       {children}
 
       <div className='base-form-actions'>
-        <button type='button' className='btn btn-outline-danger btn-cancel'>
+        <button
+          type='button'
+          className='btn btn-outline-danger btn-cancel'
+          onClick={handleCancel}
+        >
           Cancelar
         </button>
-        <button type='button' className='btn btn-primary btn-save'>
+        <button type='submit' className='btn btn-primary btn-save'>
           Cadastrar
         </button>
       </div>

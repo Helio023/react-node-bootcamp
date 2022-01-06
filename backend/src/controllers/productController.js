@@ -1,11 +1,11 @@
 const Product = require('../models/productModel');
 
 exports.createProdut = async (req, res) => {
-  const { name, price, image } = req.body;
+  const { name, price, image, description } = req.body;
   try {
-    const product = await Product.create({ name, price, image });
+    const product = await Product.create({ name, price, image, description });
 
-    res.status(200).json({
+    res.status(201).json({
       status: 'success',
       product,
     });
@@ -18,17 +18,20 @@ exports.createProdut = async (req, res) => {
 };
 
 exports.getAllProducts = async (req, res) => {
-  
   try {
     let { page, size } = req.query;
-    if (!page) {page = 1}
-    if (!size) {size = 8}
-    const totalProducts = await Product.countDocuments()
+    if (!page) {
+      page = 1;
+    }
+    if (!size) {
+      size = 8;
+    }
+    const totalProducts = await Product.countDocuments();
     const limit = parseInt(size);
-    const skip = (parseInt(page) - 1) * size
-    const totalPages = Math.ceil(totalProducts / limit)
+    const skip = (parseInt(page) - 1) * size;
+    const totalPages = Math.ceil(totalProducts / limit);
 
-    const products = await Product.find().limit(limit).skip(skip)
+    const products = await Product.find().limit(limit).skip(skip);
 
     res.status(200).json({
       status: 'sucess',
@@ -59,3 +62,17 @@ exports.getProduct = async (req, res) => {
     });
   }
 };
+
+exports.deleteProduct = async (req, res) => {
+  try {
+    await Product.findByIdAndDelete(req.params.id)
+    res.status(204).json({
+      status: 'success',
+    })
+  } catch (e) {
+    res.status(400).json({
+      status: 'fail',
+      message: e.message,
+    });
+  }
+}
