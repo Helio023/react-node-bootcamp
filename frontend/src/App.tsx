@@ -6,6 +6,7 @@ import Home from './core/pages/Home';
 import Catalog from './core/pages/Catalog';
 import Admin from './core/pages/Admin';
 import ProductDetails from './core/pages/Catalog/components/ProductDetails';
+import Auth from './core/pages/Auth/Auth';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path='products' element={<Catalog />} />
           <Route path='products/:productid' element={<ProductDetails />} />
           <Route path='admin/*' element={<Admin />} />
+          <Route path='admin/auth/*' element={<Auth />} />
         </Routes>
       </BrowserRouter>
     </>
