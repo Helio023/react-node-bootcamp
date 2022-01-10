@@ -1,6 +1,7 @@
 const Product = require('../models/productModel');
+// const ErrorResponse = require('../utils/errorResponse');
 
-exports.createProdut = async (req, res) => {
+exports.createProdut = async (req, res, next) => {
   const { name, price, image, description } = req.body;
   try {
     const product = await Product.create({ name, price, image, description });
@@ -9,11 +10,8 @@ exports.createProdut = async (req, res) => {
       status: 'success',
       product,
     });
-  } catch (e) {
-    res.status(400).json({
-      status: 'fail',
-      message: e.message,
-    });
+  } catch (error) {
+    next(error);
   }
 };
 
@@ -65,14 +63,14 @@ exports.getProduct = async (req, res) => {
 
 exports.deleteProduct = async (req, res) => {
   try {
-    await Product.findByIdAndDelete(req.params.id)
+    await Product.findByIdAndDelete(req.params.id);
     res.status(204).json({
       status: 'success',
-    })
+    });
   } catch (e) {
     res.status(400).json({
       status: 'fail',
       message: e.message,
     });
   }
-}
+};
