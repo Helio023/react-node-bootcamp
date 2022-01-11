@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import './styles.scss'
 
 const List = () => {
   const navigate = useNavigate();
